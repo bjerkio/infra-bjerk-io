@@ -42,7 +42,7 @@ new gcp.dns.RecordSet(
   {
     managedZone,
     name: 'bjerk.io.',
-    rrdatas: ['104.198.14.52'],
+    rrdatas: ['151.101.1.195', '151.101.65.195'],
     ttl,
     type: 'A',
   },
@@ -54,9 +54,9 @@ new gcp.dns.RecordSet(
   {
     managedZone,
     name: 'www.bjerk.io.',
-    rrdatas: ['bjerk-website.netlify.com.'],
+    rrdatas: ['151.101.1.195', '151.101.65.195'],
     ttl,
-    type: 'CNAME',
+    type: 'A',
   },
   opts,
 );
