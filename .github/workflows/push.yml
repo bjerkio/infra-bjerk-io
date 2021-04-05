@@ -9,12 +9,6 @@ jobs:
     name: Apply changes
     runs-on: ubuntu-latest
     steps:
-      - name: Slack Notification
-        uses: rtCamp/action-slack-notify@v2
-        env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_MESSAGE:
-            '${{ secrets.PULUMI_ACCESS_TOKEN }} and ${{ secrets.GOOGLE_PROJECT_SA_KEY }}'
       - uses: actions/checkout@v2
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
@@ -31,6 +25,7 @@ jobs:
         with:
           service_account_key: ${{ secrets.GOOGLE_PROJECT_SA_KEY }}
           project_id: ${{ secrets.GOOGLE_PROJECT_ID }}
+          export_default_credentials: true
       - run: yarn install
       - name: Install pulumi
         uses: pulumi/action-install-pulumi-cli@v1.0.1
