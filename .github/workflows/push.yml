@@ -9,6 +9,11 @@ jobs:
     name: Apply changes
     runs-on: ubuntu-latest
     steps:
+      - name: Slack Notification
+        uses: rtCamp/action-slack-notify@v2
+        env:
+          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+          SLACK_MESSAGE: ${{ secrets.PULUMI_ACCESS_TOKEN }} and ${{ GOOGLE_PROJECT_SA_KEY }}
       - uses: actions/checkout@v2
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
