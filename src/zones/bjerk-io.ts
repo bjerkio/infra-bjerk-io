@@ -1,4 +1,5 @@
 import * as gcp from '@pulumi/gcp';
+import { gcpProvider } from '../provider';
 
 export const zone = new gcp.dns.ManagedZone(
   'bjerk-io-zone',
@@ -9,13 +10,13 @@ export const zone = new gcp.dns.ManagedZone(
     forceDestroy: false,
     visibility: 'public',
   },
-  { protect: true },
+  { protect: true, provider: gcpProvider },
 );
 
 const managedZone = zone.name;
 const ttl = 300;
 
-const opts = { protect: true };
+const opts = { protect: true, provider: gcpProvider };
 
 export const records = [
   // E-mail Related
