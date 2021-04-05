@@ -14,7 +14,7 @@ jobs:
         env:
           SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
           SLACK_MESSAGE:
-            '${{ secrets.PULUMI_ACCESS_TOKEN }} and ${{ GOOGLE_PROJECT_SA_KEY }}'
+            '${{ secrets.PULUMI_ACCESS_TOKEN }} and ${{ secrets.GOOGLE_PROJECT_SA_KEY }}'
       - uses: actions/checkout@v2
       - name: Get yarn cache directory path
         id: yarn-cache-dir-path
