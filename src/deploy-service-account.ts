@@ -20,7 +20,9 @@ new github.ActionsSecret(
   'deploy-url',
   {
     secretName: 'GOOGLE_PROJECT_SA_KEY',
-    plaintextValue: saKey.privateKey,
+    plaintextValue: saKey.privateKey.apply((k) =>
+      Buffer.from(k, 'base64').toString('utf-8'),
+    ),
     repository: 'website',
   },
   { provider: githubProvider },
