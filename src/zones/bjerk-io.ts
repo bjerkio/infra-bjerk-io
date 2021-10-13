@@ -79,7 +79,7 @@ new gcp.dns.RecordSet(
   {
     managedZone,
     name: '_dmarc.bjerk.io.',
-    rrdatas: ['bjerk.no.hosted.dmarc-report.com.'],
+    rrdatas: 'bjerk.no.hosted.dmarc-report.com.',
     ttl: 300,
     type: 'CNAME',
   },
