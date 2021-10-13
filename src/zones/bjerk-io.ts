@@ -75,6 +75,18 @@ new gcp.dns.RecordSet(
 );
 
 new gcp.dns.RecordSet(
+  'bjerk-io-dmarc-report',
+  {
+    managedZone,
+    name: '_dmarc.bjerk.io.',
+    rrdatas: ['bjerk.no.hosted.dmarc-report.com'],
+    ttl: 300,
+    type: 'CNAME',
+  },
+  opts,
+);
+
+new gcp.dns.RecordSet(
   'bjerk-io-domainkey',
   {
     managedZone,
